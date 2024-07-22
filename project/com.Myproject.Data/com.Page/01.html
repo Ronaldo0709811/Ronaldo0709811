@@ -8,7 +8,83 @@
 </head>
 
 <body>
-
+    <!-- 轮播图 -->
+    <header>
+        <div class="slider">
+            <div class="slider-warpper">
+                <img src="/project/com.Myproject.Data/imagesone/01.jpg" alt="">
+            </div>
+            <div class="slider-footer">
+                <p>hello world</p>
+                <ul class="slider-indicator">
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <div class="toggle">
+                    <button class="next">
+                        下一张
+                    </button>
+                    <button class="prev">
+                        上一张
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <script>
+        // 初始数据
+        const Data = [
+            { url: '/project/com.Myproject.Data/imagesone/01.jpg', title: '你喜欢的球星有哪些？', color: 'rgb(100, 50, 68)' },
+            { url: '/Project everyone/images/imagesone/02.jpg', title: '你是什么时候开始的', color: 'rgb(22, 50, 68)' },
+            { url: '/Project everyone/images/imagesone/03.jpg', title: '你喜欢的球星有哪些？在你影响中的球星', color: 'rgb(100, 32, 68)' },
+            { url: '/Project everyone/images/imagesone/04.jpg', title: '你喜欢的球星有哪些？', color: 'rgb(100, 50, 11)' },
+            { url: '/Project everyone/images/imagesone/05.jpg', title: '你喜欢的球星有哪些？', color: 'rgb(100, 50, 11)' },
+            { url: '/Project everyone/images/imagesone/06.jpg', title: '你喜欢的球星有哪些？', color: 'rgb(100, 50, 11)' }
+        ]
+        // 获取元素
+        const img = document.querySelector('.slider-warpper img')
+        const p = document.querySelector('.slider-footer p')
+        const footer = document.querySelector('.slider-footer')
+        // 动态渲染
+        let i = 0
+        // 左边按钮
+        // 获取按钮
+        const next = document.querySelector('.next')
+        next.addEventListener('click', function () {
+            i++
+            i = i > Data.length ? 0 : i
+            toggle() //调用函数
+        })
+        // 右边按钮
+        const prev = document.querySelector('.prev')
+        prev.addEventListener('click', function () {
+            i--
+            i = i < 0 ? Data.length : i
+            toggle() //调用函数
+        })
+        function toggle() {
+            img.src = Data[i].url
+            p.innerhtml = Data[i].title
+            footer.style.backgroundColor = Data[i].color
+            document.querySelector('.slider-indicator').classList.remove('active')
+            document.querySelector('.slider-indicator li:nth-child(${i + 1})').classList.add('active')
+        }
+        let timerId = setInterval(function () {
+            next.click()
+        }, 1500)
+        const slider = document.querySelector('.slider')
+        slider.addEventListener('mouseenter', function () {
+            clearInterval(timerId)
+        }) //鼠标移入清除定时器
+        slider.addEventListener('mouseleave', function () {
+            timerId = setInterval(function () {
+                next.click()
+            }, 1500)
+        }) //鼠标移出开启定时器
+    </script>
 </body>
 
 </html>
