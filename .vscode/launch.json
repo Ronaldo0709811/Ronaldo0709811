@@ -1,0 +1,34 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Window",
+            "request": "launch",
+            "mainClass": "Window",
+            "projectName": "Ronaldo0709811_b7491d63"
+        },
+        {
+            "type": "java",
+            "name": "switchLX",
+            "request": "launch",
+            "mainClass": "switchLX",
+            "projectName": "Ronaldo0709811_b7491d63"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "Ronaldo0709811_b7491d63"
+        },
+        {
+            "type": "jdk",
+            "request": "launch",
+            "name": "Launch Java App"
+        }
+    ]
+}
